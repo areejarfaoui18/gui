@@ -31,10 +31,6 @@ public class TaskFormController {
         this.taskService = taskService;
     }
 
-    public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
-
     public void setTask(Task task) {
         this.task = task;
         if (task != null) {

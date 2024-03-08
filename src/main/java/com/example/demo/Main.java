@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.Controller.MainPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,12 +13,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load( Objects.requireNonNull(getClass().getResource("/com/example/view/WelcomePage.fxml")));
+        Parent root = FXMLLoader.load( Objects.requireNonNull(getClass().getResource("/com/example/view/MainPage.fxml")));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("Welcome to Task Manager");
         primaryStage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/MainPage.fxml"));
+        MainPageController controller = loader.getController();
     }
 
     public static void main(String[] args) {
