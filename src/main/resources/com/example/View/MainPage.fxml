@@ -14,7 +14,7 @@
             <Font name="System Bold Italic" size="43.0" />
          </font>
       </Text>
-      <ListView layoutX="68.0" layoutY="107.0" prefHeight="200.0" prefWidth="465.0" />
+      <ListView fx:id="taskListView" layoutX="68.0" layoutY="107.0" prefHeight="200.0" prefWidth="465.0" />
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Go Back" onAction="#goBack" />
       <Button layoutX="466.0" layoutY="341.0" mnemonicParsing="false" text="Update" onAction="#openTaskForm" />
       <Button layoutX="399.0" layoutY="341.0" mnemonicParsing="false" text="Delete" />

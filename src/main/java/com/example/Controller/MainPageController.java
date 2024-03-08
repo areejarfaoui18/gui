@@ -1,23 +1,14 @@
 package com.example.Controller;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import com.example.Model.Task;
-import com.example.Service.TaskService;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.sql.Date;
-import java.sql.SQLException;
 import java.util.List;
 
 public class MainPageController {
@@ -26,105 +17,44 @@ public class MainPageController {
     private ListView<Task> taskListView;
 
     @FXML
-    private TextField titleTextField;
+    private Button goBackButton;
 
     @FXML
-    private TextField descriptionTextField;
+    private void initialize() {
+        // Call the method to retrieve all tasks from the database
+        List<Task> tasks = Task.getAllTasks();
 
-    @FXML
-    private TextField deadlineTextField;
+        // Populate the ListView with the retrieved tasks
+        taskListView.getItems().addAll(tasks);
 
-    private TaskService taskService;
-
-    public MainPageController(){
-        taskService = TaskService.getInstance();
-    }
-    public void initialize() throws SQLException {
-        loadTasks();
-    }
-
-    private void loadTasks() {
-        TaskService taskService = TaskService.getInstance(); // Get an instance of TaskService
-        try {
-            List<Task> taskList = taskService.findAll(); // Fetch the list of tasks from the service
-            ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList); // Convert to ObservableList
-            taskListView.setItems(taskObservableList); // Set the ObservableList to your ListView
-        } catch (SQLException e) {
-            e.printStackTrace(); // Properly handle the exception
-        }
-    }
-
-
-    @FXML
-    private void createTask() throws SQLException {
-        String title = titleTextField.getText();
-        String description = descriptionTextField.getText();
-        Date deadline = Date.valueOf(deadlineTextField.getText());
-
-        Task task = new Task(title, description, deadline);
-        taskService.add(task);
-        taskListView.getItems().add(task);
-    }
-
-    @FXML
-    private void updateTask() throws SQLException {
-        Task selectedTask = taskListView.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
-            String title = titleTextField.getText();
-            String description = descriptionTextField.getText();
-            Date deadline = Date.valueOf(deadlineTextField.getText());
-
-            selectedTask.setTitle(title);
-            selectedTask.setDescription(description);
-            selectedTask.setDeadline(deadline);
-
-            taskService.update(selectedTask);
-            taskListView.refresh();
-        }
-    }
-
-    @FXML
-    private void deleteTask() throws SQLException {
-        Task selectedTask = taskListView.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
-            taskService.delete(selectedTask);
-            taskListView.getItems().remove(selectedTask);
-        }
-    }
-
-    @FXML
-    private void handleTaskSelection(MouseEvent event) {
-        Task selectedTask = taskListView.getSelectionModel().getSelectedItem();
-        if (selectedTask != null) {
-            titleTextField.setText(selectedTask.getTitle());
-            descriptionTextField.setText(selectedTask.getDescription());
-            deadlineTextField.setText(selectedTask.getDeadline().toString());
-        }
+        // Set custom cell factory to customize the appearance of each cell
+        taskListView.setCellFactory(new Callback<ListView<Task>, ListCell<Task>>() {
+            @Override
+            public ListCell<Task> call(ListView<Task> param) {
+                return new ListCell<Task>() {
+                    @Override
+                    protected void updateItem(Task item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty || item == null) {
+                            setText(null);
+                        } else {
+                            setText(item.getId() + "\t" + item.getTitle() + "\t" + item.getDescription() + "\t" + item.getDeadline()); // Customize how Task is displayed
+                        }
+                    }
+                };
+            }
+        });
     }
 
     @FXML
     private void goBack() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/WelcomePage.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // Close the current window (MainPage)
+        Stage stage = (Stage) goBackButton.getScene().getWindow();
+        stage.close();
     }
 
-
-    public void openTaskForm() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/TaskForm.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    @FXML
+    private void openTaskForm() {
+        // Code to open the task form window
     }
 }
