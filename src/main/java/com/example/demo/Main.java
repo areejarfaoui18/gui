@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.Controller.MainPageController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,6 +19,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Welcome to Task Manager");
         primaryStage.show();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/MainPage.fxml"));
+        MainPageController controller = loader.getController();
     }
 
     public static void main(String[] args) {

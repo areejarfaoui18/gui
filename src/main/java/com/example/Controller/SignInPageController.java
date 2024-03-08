@@ -83,6 +83,7 @@ public class SignInPageController {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/MainPage.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();

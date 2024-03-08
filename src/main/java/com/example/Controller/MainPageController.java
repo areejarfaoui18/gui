@@ -138,7 +138,7 @@ public class MainPageController {
     public void addTaskForm() {
         try {
             // Load the SignInPage.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/TaskForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Form.fxml"));
             Parent root = loader.load();
 
             // Get the stage from the button
@@ -147,7 +147,7 @@ public class MainPageController {
 
             // Create a new scene with the SignInPage.fxml content
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
             // Set the scene to the stage
             stage.setScene(scene);
             stage.show();
@@ -159,7 +159,7 @@ public class MainPageController {
     public void updateTaskForm() {
         try {
             // Load the SignInPage.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/TaskForm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Form2.fxml"));
             Parent root = loader.load();
 
             // Get the stage from the button
@@ -168,7 +168,7 @@ public class MainPageController {
 
             // Create a new scene with the SignInPage.fxml content
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
             // Set the scene to the stage
             stage.setScene(scene);
             stage.show();

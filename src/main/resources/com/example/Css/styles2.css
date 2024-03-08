@@ -1,0 +1,32 @@
+/* Style for labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 5px;
+}
+
+/* Style for text fields */
+.text-field {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+}
+
+/* Style for buttons */
+.button {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-font-size: 14px;
+    -fx-background-color: #89ABE3; /* Green */
+    -fx-text-fill: white;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    -fx-background-color: #89ABE3; /* Darker Green */
+}
+
+/* Pressed effect for buttons */
+.button:pressed {
+    -fx-background-color: #89ABE3; /* Even Darker Green */
+}
