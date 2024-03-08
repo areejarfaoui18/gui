@@ -2,17 +2,17 @@ package com.example.Model;
 import java.sql.Date;
 
 public class Task {
+
     private int id;
     private String title;
     private String description;
     private Date deadline;
 
     // Constructors
-    public Task() {
+    public Task(int id, String title, String description, Date deadline) {
     }
 
-    public Task(int id, String title, String description, Date deadline) {
-        this.id = id;
+    public Task(String title, String description, Date deadline) {
         this.title = title;
         this.description = description;
         this.deadline = deadline;
