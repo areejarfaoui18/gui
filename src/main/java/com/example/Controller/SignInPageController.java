@@ -55,7 +55,7 @@ public class SignInPageController {
         if (authenticated) {
             // Navigate to another page
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/WelcomePage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/MainPage.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
