@@ -1,30 +1,38 @@
 package com.example.Controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.stage.Stage;
 
-public class WelcomePageController implements Initializable {
+import java.io.IOException;
+import java.util.Objects;
+
+public class WelcomePageController {
 
     @FXML
     private Button getStartedButton;
 
     @FXML
-    private AnchorPane root;
+    private void handleGetStarted() {
+        try {
+            // Load the SignInPage.fxml file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/SignInPage.fxml"));
+            Parent root = loader.load();
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        // Initialize any required setup
-    }
+            // Get the stage from the button
+            Stage stage = (Stage) getStartedButton.getScene().getWindow();
 
-    @FXML
-    private void handleGetStarted(ActionEvent event) {
-        // Handle "Get Started" button click event
-        // Navigate to the next page (to be implemented)
+            // Create a new scene with the SignInPage.fxml content
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            // Set the scene to the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
-

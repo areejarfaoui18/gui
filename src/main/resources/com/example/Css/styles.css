@@ -1,28 +1,57 @@
 .welcome-page {
-    -fx-background-color: #d3d3d3;
     -fx-border-color: #00246B;
+    -fx-background-color: #d3d3d3; /* Background color */
 }
 
 .welcome-text {
-    -fx-text-fill: #89abe3;
     -fx-font-family: "Candara Bold Italic";
     -fx-font-size: 43.0;
+    -fx-text-fill: #89abe3;
 }
 
 .get-started-button {
-    -fx-text-fill: #89abe3;
     -fx-font-family: "System Bold";
     -fx-font-size: 18.0;
+    -fx-text-fill: #89abe3;
 }
 
 .sub-welcome-text-1 {
-    -fx-text-fill: #ea738d; /* Task-manager text color */
     -fx-font-family: "Candara Bold";
     -fx-font-size: 15.0;
+    -fx-text-fill: #ea738d;
 }
 
 .sub-welcome-text-2 {
-    -fx-text-fill: #261c1999; /* Secondary text color */
     -fx-font-family: "Candara Bold";
     -fx-font-size: 17.0;
+    -fx-text-fill: #261c1999;
 }
+
+/* styles.css */
+.signin-page {
+    -fx-background-color: #000000; /* Background color */
+}
+
+.signin-text {
+    -fx-font-family: "Candara Bold Italic";
+    -fx-font-size: 43.0;
+    -fx-text-fill: #89abe3;
+}
+
+.signin-heading {
+    -fx-fill: #000000; /* Heading text color */
+    -fx-font-size: 27px;
+}
+
+.signin-input {
+    -fx-prompt-text-fill: #0000007b; /* Prompt text color */
+    -fx-font-size: 14px;
+}
+
+.signin-button {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 18.0;
+    -fx-text-fill: #89abe3;
+}
+
+
