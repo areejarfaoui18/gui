@@ -159,7 +159,7 @@ public class MainPageController {
     public void updateTaskForm() {
         try {
             // Load the SignInPage.fxml file
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Form.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/Form2.fxml"));
             Parent root = loader.load();
 
             // Get the stage from the button

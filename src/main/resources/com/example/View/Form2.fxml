@@ -28,7 +28,7 @@
                 <TextField fx:id="descriptionTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label text="Deadline:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                 <TextField fx:id="deadlineTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                <Button text="Add Task" onAction="#saveTask" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <Button text="Update Task" onAction="#updateTask" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                 <Button fx:id="cancel" text="Cancel" onAction="#cancel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             </children>
         </GridPane>
