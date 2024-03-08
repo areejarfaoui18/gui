@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400" prefWidth="600" stylesheets="file:///C:/Users/ija/IdeaProjects/demo/src/main/resources/com/example/Css/styles.css"
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400" prefWidth="600"
             xmlns:fx="http://javafx.com/javafx/1" fx:controller="com.example.Controller.SignInPageController">
 
    <!-- Text Manager -->
@@ -44,16 +44,16 @@
    </Label>
 
    <!-- Password TextField -->
-   <TextField fx:id="passwordTextField" layoutX="290.0" layoutY="160.0" prefHeight="25.0" prefWidth="200.0"/>
+   <PasswordField fx:id="passwordTextField" layoutX="290.0" layoutY="160.0" prefHeight="25.0" prefWidth="200.0" />
 
    <!-- Sign In Button -->
    <Button fx:id="signInButton" layoutX="450.0" layoutY="200.0" text="Sign In" onAction="#handleSignIn"/>
 
-   <!-- Sign Up Text -->
-   <Label fx:id="signUpTextLabel" layoutX="10.0" layoutY="360.0" text="New here? Click to sign up" styleClass="sign-up-text">
+   <Button fx:id="signUpButton" layoutX="10.0" layoutY="360.0" text="New here? Click to sign up" onAction="#gotoSignUp">
       <font>
          <Font size="12.0"/>
       </font>
-   </Label>
+   </Button>
+
 
 </AnchorPane>
