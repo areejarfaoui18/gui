@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SignInPageController {
 
@@ -31,6 +32,27 @@ public class SignInPageController {
             // Create a new Scene with the welcome page content
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("/com/example/Css/styles.css").toExternalForm());
+
+            // Get the stage from the event source
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+
+            // Set the new scene on the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void gotoSignUp(ActionEvent event) {
+        // Load the WelcomePage.fxml file
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/View/SignUpPage.fxml"));
+            Parent root = loader.load();
+
+            // Create a new Scene with the welcome page content
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
 
             // Get the stage from the event source
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

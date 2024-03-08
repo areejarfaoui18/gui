@@ -4,7 +4,6 @@ import com.example.Utils.DataBaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class User {
@@ -43,8 +42,23 @@ public class User {
         ) {
             statement.setString(1, username);
             statement.setString(2, password);
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet.next(); // Returns true if a matching user is found
+            return statement.executeQuery().next(); // Returns true if a matching user is found
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Method to add user to the database
+    public boolean addToDatabase() {
+        String query = "INSERT INTO users (username, password) VALUES (?, ?)";
+        try (
+                Connection connection = DataBaseConnector.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query);
+        ) {
+            statement.setString(1, username);
+            statement.setString(2, password);
+            return statement.executeUpdate() > 0; // Returns true if insertion was successful
         } catch (SQLException e) {
             e.printStackTrace();
             return false;

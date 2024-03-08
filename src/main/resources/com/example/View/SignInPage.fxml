@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400" prefWidth="600" stylesheets="file:///C:/Users/ija/IdeaProjects/demo/src/main/resources/com/example/Css/styles.css"
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400" prefWidth="600"
             xmlns:fx="http://javafx.com/javafx/1" fx:controller="com.example.Controller.SignInPageController">
 
    <!-- Text Manager -->
@@ -49,11 +49,11 @@
    <!-- Sign In Button -->
    <Button fx:id="signInButton" layoutX="450.0" layoutY="200.0" text="Sign In" onAction="#handleSignIn"/>
 
-   <!-- Sign Up Text -->
-   <Label fx:id="signUpTextLabel" layoutX="10.0" layoutY="360.0" text="New here? Click to sign up" styleClass="sign-up-text">
+   <Button fx:id="signUpButton" layoutX="10.0" layoutY="360.0" text="New here? Click to sign up" onAction="#gotoSignUp">
       <font>
          <Font size="12.0"/>
       </font>
-   </Label>
+   </Button>
+
 
 </AnchorPane>
