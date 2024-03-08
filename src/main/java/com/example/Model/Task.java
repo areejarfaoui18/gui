@@ -9,10 +9,8 @@ public class Task {
     private Date deadline;
 
     // Constructors
-    public Task(int id, String title, String description, Date deadline) {
-    }
-
-    public Task(String title, String description, Date deadline) {
+    public Task(Integer id,String title, String description, Date deadline) {
+        this.id=id;
         this.title = title;
         this.description = description;
         this.deadline = deadline;

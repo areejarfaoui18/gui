@@ -53,7 +53,7 @@ public class TaskFormController {
 
             if (task == null) {
                 // Adding new task
-                Task newTask = new Task(title, description, deadline);
+                Task newTask = new Task(null,title, description, deadline);
                 taskService.add(newTask);
             } else {
                 // Updating existing task
