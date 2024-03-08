@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Objects;
 
 public class MainPageController {
 
@@ -34,24 +35,33 @@ public class MainPageController {
     @FXML
     private TextField deadlineTextField;
 
+    @FXML
+    private Button addTaskForm;
+
+    @FXML
+    private Button updateTaskForm;
+    @FXML
+    private Button goBack;
+
     private TaskService taskService;
 
-    public MainPageController(){
+    public MainPageController() {
         taskService = TaskService.getInstance();
     }
-    public void initialize() throws SQLException {
-        loadTasks();
-    }
 
-    private void loadTasks() {
-        TaskService taskService = TaskService.getInstance(); // Get an instance of TaskService
+    public void initialize() throws SQLException {
         try {
             List<Task> taskList = taskService.findAll(); // Fetch the list of tasks from the service
-            ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList); // Convert to ObservableList
-            taskListView.setItems(taskObservableList); // Set the ObservableList to your ListView
+            //ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList); // Convert to ObservableList
+            this.taskListView.getItems().addAll(taskList); // Set the ObservableList to your ListView
         } catch (SQLException e) {
             e.printStackTrace(); // Properly handle the exception
         }
+    }
+
+    private void loadTasks() {
+        // Get an instance of TaskService
+
     }
 
 
@@ -61,7 +71,7 @@ public class MainPageController {
         String description = descriptionTextField.getText();
         Date deadline = Date.valueOf(deadlineTextField.getText());
 
-        Task task = new Task(title, description, deadline);
+        Task task = new Task(null, title, description, deadline);
         taskService.add(task);
         taskListView.getItems().add(task);
     }
@@ -103,28 +113,68 @@ public class MainPageController {
     }
 
     @FXML
-    private void goBack() {
+    public void goBack() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/WelcomePage.fxml"));
+            // Load the SignInPage.fxml file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/WelcomePage.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+
+            // Get the stage from the button
+            Stage stage = (Stage) goBack.getScene().getWindow();
+
+
+            // Create a new scene with the SignInPage.fxml content
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            // Set the scene to the stage
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-
-    public void openTaskForm() {
+    @FXML
+    public void addTaskForm() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/path/to/TaskForm.fxml"));
+            // Load the SignInPage.fxml file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/TaskForm.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
+
+            // Get the stage from the button
+            Stage stage = (Stage) addTaskForm.getScene().getWindow();
+
+
+            // Create a new scene with the SignInPage.fxml content
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            // Set the scene to the stage
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    @FXML
+    public void updateTaskForm() {
+        try {
+            // Load the SignInPage.fxml file
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/TaskForm.fxml"));
+            Parent root = loader.load();
+
+            // Get the stage from the button
+            Stage stage = (Stage) updateTaskForm.getScene().getWindow();
+
+
+            // Create a new scene with the SignInPage.fxml content
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            // Set the scene to the stage
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
