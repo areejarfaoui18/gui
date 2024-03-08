@@ -1,0 +1,28 @@
+.welcome-page {
+    -fx-background-color: #d3d3d3;
+    -fx-border-color: #00246B;
+}
+
+.welcome-text {
+    -fx-text-fill: #89abe3;
+    -fx-font-family: "Candara Bold Italic";
+    -fx-font-size: 43.0;
+}
+
+.get-started-button {
+    -fx-text-fill: #89abe3;
+    -fx-font-family: "System Bold";
+    -fx-font-size: 18.0;
+}
+
+.sub-welcome-text-1 {
+    -fx-text-fill: #ea738d; /* Task-manager text color */
+    -fx-font-family: "Candara Bold";
+    -fx-font-size: 15.0;
+}
+
+.sub-welcome-text-2 {
+    -fx-text-fill: #261c1999; /* Secondary text color */
+    -fx-font-family: "Candara Bold";
+    -fx-font-size: 17.0;
+}
