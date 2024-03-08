@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load( Objects.requireNonNull(getClass().getResource("/com/example/view/MainPage.fxml")));
+        Parent root = FXMLLoader.load( Objects.requireNonNull(getClass().getResource("/com/example/view/WelcomePage.fxml")));
         Scene scene = new Scene(root);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
         primaryStage.setScene(scene);

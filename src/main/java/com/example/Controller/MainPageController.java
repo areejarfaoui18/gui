@@ -147,7 +147,7 @@ public class MainPageController {
 
             // Create a new scene with the SignInPage.fxml content
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
             // Set the scene to the stage
             stage.setScene(scene);
             stage.show();
@@ -168,7 +168,7 @@ public class MainPageController {
 
             // Create a new scene with the SignInPage.fxml content
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
             // Set the scene to the stage
             stage.setScene(scene);
             stage.show();

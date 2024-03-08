@@ -75,7 +75,7 @@ public class TaskFormController {
                 taskService.delete(task);
             }
 
-            dialogStage.toBack();
+
         }
     }
 
@@ -94,6 +94,7 @@ public class TaskFormController {
             taskService.update(selectedTask);
             taskListView.refresh();
         }
+        cancel();
     }
 
     private boolean isInputValid() {
@@ -115,7 +116,7 @@ public class TaskFormController {
 
             // Create a new scene with the SignInPage.fxml content
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles.css")).toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/Css/styles2.css")).toExternalForm());
             // Set the scene to the stage
             stage.setScene(scene);
             stage.show();
